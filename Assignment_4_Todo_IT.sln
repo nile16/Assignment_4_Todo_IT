@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment_4_Todo_IT", "Assignment_4_Todo_IT\Assignment_4_Todo_IT.csproj", "{171F540D-651D-412C-8260-7D2B5A191368}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Assignment_4_Todo_IT.Tests", "Assignment_4_Todo_IT.test\Assignment_4_Todo_IT.Tests.csproj", "{4308DD12-2FF9-429A-8A2A-0684C1C0F362}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{171F540D-651D-412C-8260-7D2B5A191368}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{171F540D-651D-412C-8260-7D2B5A191368}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{171F540D-651D-412C-8260-7D2B5A191368}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{171F540D-651D-412C-8260-7D2B5A191368}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4308DD12-2FF9-429A-8A2A-0684C1C0F362}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4308DD12-2FF9-429A-8A2A-0684C1C0F362}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4308DD12-2FF9-429A-8A2A-0684C1C0F362}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4308DD12-2FF9-429A-8A2A-0684C1C0F362}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FC325F0-B5E2-49D2-BB1F-D3E778932005}
+	EndGlobalSection
+EndGlobal
