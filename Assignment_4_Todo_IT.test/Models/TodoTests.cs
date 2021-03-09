@@ -4,7 +4,7 @@ using Assignment_4_Todo_IT.Models;
 
 namespace Assignment_4_Todo_IT.Tests.Models
 {
-    public class TodoTests
+    public class PersonSequencerTests
     {
         [Fact]
         public void Test_Constructor()
