@@ -8,7 +8,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
     {
 
         [Fact]
-        public void Test_Get()
+        public void Test_NextId()
         {
             Assert.Equal(1, PersonSequencer.nextPersonId());
             Assert.Equal(2, PersonSequencer.nextPersonId());
