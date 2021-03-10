@@ -1,9 +1,9 @@
-using System;
 using Xunit;
 using Assignment_4_Todo_IT.Models;
 
 namespace Assignment_4_Todo_IT.Tests.Models
 {
+    [Collection("Assignment_4_Todo_IT")]
     public class PersonTests
     {
         [Fact]

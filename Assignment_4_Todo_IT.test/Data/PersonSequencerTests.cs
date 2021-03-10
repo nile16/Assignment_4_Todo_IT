@@ -1,9 +1,9 @@
-using System;
 using Xunit;
 using Assignment_4_Todo_IT.Data;
 
 namespace Assignment_4_Todo_IT.Tests.Data
 {
+    [Collection("Assignment_4_Todo_IT")]
     public class PersonSequencerTests
     {
 

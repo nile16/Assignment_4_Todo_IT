@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using Assignment_4_Todo_IT.Models;
 
 namespace Assignment_4_Todo_IT.Data
@@ -19,27 +18,43 @@ namespace Assignment_4_Todo_IT.Data
             return todos;
         }
 
-        public static Todo FindById(int personId)
+        public static Todo FindById(int todoId)
         {
-            return Array.Find(todos, todo => todo.Todoid == personId);
+            return Array.Find(todos, todo => todo.Todoid == todoId);
         }
 
         public static Todo Add(string description)
         {
-            Todo[] tempTodos = new Todo[todos.Length + 1];
+            Todo newTodo = new Todo(TodoSequencer.nextTodoId(), description);
 
-            todos.CopyTo(tempTodos, 0);
+            todos = todos.Append(newTodo).ToArray();
 
-            tempTodos[^1] = new Todo(TodoSequencer.nextTodoId(), description);
-
-            todos = tempTodos;
-
-            return todos[^1];
+            return newTodo;
         }
 
         public static void Clear()
         {
             todos = new Todo[0];
+        }
+
+        public static Todo[] FindByDoneStatus(bool doneStatus)
+        {
+            return todos.Where(todo => todo.Done == doneStatus).ToArray();
+        }
+
+        public static Todo[] FindByAssignee(int personId)
+        {
+            return todos.Where(todo => todo.Assignee?.PersonId == personId).ToArray();
+        }
+
+        public static Todo[] FindByAssignee(Person assignee)
+        {
+            return todos.Where(todo => todo.Assignee?.PersonId == assignee.PersonId).ToArray();
+        }
+
+        public static Todo[] FindUnassignedTodoItems()
+        {
+            return todos.Where(todo => todo.Assignee == null).ToArray();
         }
     }
 }
