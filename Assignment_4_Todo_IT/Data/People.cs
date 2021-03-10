@@ -26,19 +26,13 @@ namespace Assignment_4_Todo_IT.Data
 
         public static Person Add(string firstName, string lastName)
         {
-            Person[] temp = new Person[people.Length + 1];
-            Person addedPerson;
+            Person[] tempPeople = new Person[people.Length + 1];
 
-            for (int i=0; i < people.Length; i++)
-            {
-                temp[i] = people[i];
-            }
+            people.CopyTo(tempPeople, 0);
 
-            addedPerson = new Person(PersonSequencer.nextPersonId(), firstName, lastName);
+            tempPeople[^1] = new Person(PersonSequencer.nextPersonId(), firstName, lastName);
 
-            temp[^1] = addedPerson;
-
-            people = temp;
+            people = tempPeople;
 
             return people[^1];
         }

@@ -10,6 +10,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         [Fact]
         public void Test_NextId()
         {
+            TodoSequencer.Reset();
             Assert.Equal(1, TodoSequencer.nextTodoId());
             Assert.Equal(2, TodoSequencer.nextTodoId());
             Assert.Equal(3, TodoSequencer.nextTodoId());
