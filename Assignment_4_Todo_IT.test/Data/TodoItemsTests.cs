@@ -161,5 +161,22 @@ namespace Assignment_4_Todo_IT.Tests.Data
             Assert.Equal(2, unassignedDotos.Length);
         }
 
+        [Fact]
+        public void Test_Remove()
+        {
+            TodoItems.Clear();
+            TodoSequencer.Reset();
+
+            TodoItems.Add("Skotta snö");
+            TodoItems.Add("Klipp gräset");
+            TodoItems.Add("Gräv en brunn");
+            TodoItems.Add("Åk och handla");
+
+            TodoItems.Remove(2);
+
+            Todo[] allTodoItems = TodoItems.FindAll();
+
+            Assert.Equal(3, allTodoItems.Length);
+        }
     }
 }

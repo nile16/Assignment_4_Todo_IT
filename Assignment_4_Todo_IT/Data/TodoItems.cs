@@ -56,5 +56,10 @@ namespace Assignment_4_Todo_IT.Data
         {
             return todos.Where(todo => todo.Assignee == null).ToArray();
         }
+
+        public static void Remove(int todoId)
+        {
+            todos = todos.Where(todo => todo.Todoid != todoId).ToArray();
+        }
     }
 }

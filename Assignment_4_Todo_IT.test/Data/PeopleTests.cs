@@ -78,6 +78,25 @@ namespace Assignment_4_Todo_IT.Tests.Data
         }
 
         [Fact]
+        public void Test_Remove()
+        {
+            People.Clear();
+            PersonSequencer.Reset();
+
+            People.Add("Kalle", "Karlsson");
+            People.Add("Kent", "Larsson");
+            People.Add("Ebbe", "Karlsson");
+
+            People.Remove(2);
+
+            Person[] everybody = People.FindAll();
+
+            Assert.Equal(2, everybody.Length);
+            Assert.Equal("Kalle", everybody[0].FirstName);
+            Assert.Equal("Ebbe", everybody[1].FirstName);
+        }
+
+        [Fact]
         public void Test_Add_Clear()
         {
             People.Add("Kalle", "Karlsson");

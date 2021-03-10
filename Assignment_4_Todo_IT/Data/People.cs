@@ -32,6 +32,11 @@ namespace Assignment_4_Todo_IT.Data
             return newPerson;
         }
 
+        public static void Remove(int personId)
+        {
+            people = people.Where(person => person.PersonId != personId).ToArray();
+        }
+
         public static void Clear()
         {
             people = new Person[0];
