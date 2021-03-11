@@ -54,7 +54,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
 
         [Fact]
 
-        public void Test_Add_FindById()
+        public void Test_FindById()
         {
             // Arrange
             Person person1, person2, person3;
@@ -78,7 +78,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         }
 
         [Fact]
-        public void Test_Add_FindAll()
+        public void Test_FindAll()
         {
             // Arrange
             Person[] everybody;
@@ -110,7 +110,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         }
 
         [Fact]
-        public void Test_Add_Clear()
+        public void Test_Clear()
         {
             // Arrange
             People.Add("Kalle", "Karlsson");
