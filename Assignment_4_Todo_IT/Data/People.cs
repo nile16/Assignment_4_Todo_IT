@@ -6,7 +6,7 @@ namespace Assignment_4_Todo_IT.Data
 {
     public class People
     {
-        static Person[] people = new Person[0];
+        private static Person[] people = new Person[0];
 
         public static int Size()
         {

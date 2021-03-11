@@ -6,8 +6,8 @@ namespace Assignment_4_Todo_IT.Models
 {
     public class Person
     {
-        int personId;
-        string firstName, lastName;
+        private readonly int personId;
+        private string firstName, lastName;
 
         public Person(int personId, string firstName, string lastName)
         {

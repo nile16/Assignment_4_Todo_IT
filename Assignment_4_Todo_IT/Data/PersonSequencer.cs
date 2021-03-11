@@ -6,7 +6,7 @@ namespace Assignment_4_Todo_IT.Data
 {
     public class PersonSequencer
     {
-        static int personId = 1;
+        private static int personId = 1;
 
         public static int nextPersonId()
         {

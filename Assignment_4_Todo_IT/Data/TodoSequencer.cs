@@ -6,7 +6,7 @@ namespace Assignment_4_Todo_IT.Data
 {
     public class TodoSequencer
     {
-        static int todoId = 1;
+        private static int todoId = 1;
 
         public static int nextTodoId()
         {

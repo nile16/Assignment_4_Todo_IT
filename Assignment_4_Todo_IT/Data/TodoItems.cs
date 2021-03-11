@@ -6,7 +6,7 @@ namespace Assignment_4_Todo_IT.Data
 {
     public class TodoItems
     {
-        static Todo[] todos = new Todo[0];
+        private static Todo[] todos = new Todo[0];
 
         public static int Size()
         {

@@ -6,10 +6,10 @@ namespace Assignment_4_Todo_IT.Models
 {
     public class Todo
     {
-        int todoid;
-        string description;
-        bool done;
-        Person assignee;
+        private readonly int todoid;
+        private string description;
+        private bool done;
+        private Person assignee;
 
         public Todo(int todoid, string description)
         {

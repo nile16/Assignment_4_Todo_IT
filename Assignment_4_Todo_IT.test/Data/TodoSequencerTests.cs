@@ -6,18 +6,34 @@ namespace Assignment_4_Todo_IT.Tests.Data
     [Collection("Assignment_4_Todo_IT")]
     public class TodoSequencerTests
     {
+        [Fact]
+        public void Test_Reset()
+        {
+            // Arrange
+            TodoSequencer.nextTodoId();
+            TodoSequencer.nextTodoId();
+
+            // Act
+            TodoSequencer.Reset();
+
+            // Assert
+            Assert.Equal(1, TodoSequencer.nextTodoId());
+        }
 
         [Fact]
-        public void Test_NextId()
+        public void Test_NextTodoId()
         {
-            TodoSequencer.Reset();
-            Assert.Equal(1, TodoSequencer.nextTodoId());
-            Assert.Equal(2, TodoSequencer.nextTodoId());
-            Assert.Equal(3, TodoSequencer.nextTodoId());
-            TodoSequencer.Reset();
-            Assert.Equal(1, TodoSequencer.nextTodoId());
-            Assert.Equal(2, TodoSequencer.nextTodoId());
-            Assert.Equal(3, TodoSequencer.nextTodoId());
+            // Arrange
+            int id1, id2, id3;
+
+            // Act
+            id1 = TodoSequencer.nextTodoId();
+            id2 = TodoSequencer.nextTodoId();
+            id3 = TodoSequencer.nextTodoId();
+
+            // Assert
+            Assert.True(id2 == id1 + 1);
+            Assert.True(id3 == id2 + 1);
         }
     }
 }

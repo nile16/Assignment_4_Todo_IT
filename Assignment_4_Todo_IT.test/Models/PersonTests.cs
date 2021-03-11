@@ -7,40 +7,38 @@ namespace Assignment_4_Todo_IT.Tests.Models
     public class PersonTests
     {
         [Fact]
-        public void Test_Constructor()
+        public void Test_ConstructorAndDefaultValues()
         {
-            Person p = new Person(101, "Kalle", "Sändare");
+            // Arrange
+            Person person;
+            
+            // Act
+            person = new Person(101, "Kalle", "Sändare");
 
-            Assert.Equal(101, p.PersonId);
-            Assert.Equal("Kalle", p.FirstName);
-            Assert.Equal("Sändare", p.LastName);
+            // Assert
+            Assert.Equal(101, person.PersonId);
+            Assert.Equal("Kalle", person.FirstName);
+            Assert.Equal("Sändare", person.LastName);
         }
 
         [Fact]
         public void Test_NameChange()
         {
-            Person p = new Person(101, "", "");
+            // Arrange
+            Person person= new Person(101, "", "");
 
-            p.FirstName = "Kenta";
-            p.LastName = "Larsson";
+            // Act
+            person.FirstName = "Kenta";
+            person.LastName = "Larsson";
+            person.FirstName = "";
+            person.LastName = "";
+            person.FirstName = null;
+            person.LastName = null;
 
-            Assert.Equal(101, p.PersonId);
-            Assert.Equal("Kenta", p.FirstName);
-            Assert.Equal("Larsson", p.LastName);
-
-            p.FirstName = "";
-            p.LastName = "";
-
-            Assert.Equal(101, p.PersonId);
-            Assert.Equal("Kenta", p.FirstName);
-            Assert.Equal("Larsson", p.LastName);
-
-            p.FirstName = null;
-            p.LastName = null;
-
-            Assert.Equal(101, p.PersonId);
-            Assert.Equal("Kenta", p.FirstName);
-            Assert.Equal("Larsson", p.LastName);
+            // Assert
+            Assert.Equal(101, person.PersonId);
+            Assert.Equal("Kenta", person.FirstName);
+            Assert.Equal("Larsson", person.LastName);
         }
     }
 }
