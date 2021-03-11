@@ -9,7 +9,25 @@ namespace Assignment_4_Todo_IT.Tests.Data
     {
 
         [Fact]
-        public void Test_Add_Size()
+        public void Test_Add()
+        {
+            // Arrange
+            Todo todo1, todo2, todo3;
+            TodoItems.Clear();
+
+            // Act
+            todo1 = TodoItems.Add("Skotta snö");
+            todo2 = TodoItems.Add("Klipp gräset");
+            todo3 = TodoItems.Add("Gräv en brunn");
+
+            // Assert
+            Assert.Equal("Skotta snö", todo1.Description);
+            Assert.Equal("Klipp gräset", todo2.Description);
+            Assert.Equal("Gräv en brunn", todo3.Description);
+        }
+
+        [Fact]
+        public void Test_Size()
         {
             TodoItems.Clear();
 
@@ -21,9 +39,9 @@ namespace Assignment_4_Todo_IT.Tests.Data
             TodoItems.Add("Gräv en brunn");
             Assert.Equal(3, TodoItems.Size());
         }
-
         [Fact]
-        public void Test_Add_FindById()
+
+        public void Test_FindById()
         {
             Todo todo;
 
@@ -48,7 +66,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         }
 
         [Fact]
-        public void Test_Add_FindAll()
+        public void Test_FindAll()
         {
             TodoItems.Clear();
             TodoSequencer.Reset();
@@ -72,7 +90,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         }
 
         [Fact]
-        public void Test_Add_Clear()
+        public void Test_Clear()
         {
             TodoItems.Add("Skotta snö");
             TodoItems.Add("Klipp gräset");

@@ -7,47 +7,78 @@ namespace Assignment_4_Todo_IT.Tests.Models
     public class TodoTests
     {
         [Fact]
-        public void Test_Constructor()
+        public void Test_ConstructorAndDefaultValues()
         {
-            Todo t = new Todo(101, "Testa denna klassen");
+            // Arrange
+            Todo t;
+            
+            // Act
+            t = new Todo(101, "Testa Todo-klassen");
 
+            // Assert
             Assert.Equal(101, t.Todoid);
-            Assert.Equal("Testa denna klassen", t.Description);
+            Assert.Equal("Testa Todo-klassen", t.Description);
             Assert.False(t.Done);
         }
 
         [Fact]
-        public void Test_Description()
+        public void Test_DotoIdGet()
         {
-            Todo t = new Todo(101, "Testa denna klassen.");
+            // Arrange
+            Todo todo;
+            int todoId;
+            todo = new Todo(101, "Testa Todo-klassen");
 
-            Assert.Equal("Testa denna klassen.", t.Description);
+            // Act
+            todoId = todo.Todoid;
 
-            t.Description = "Testa denna klassen genast!";
-
-            Assert.Equal("Testa denna klassen genast!", t.Description);
+            // Assert
+            Assert.Equal(101, todoId);
         }
 
         [Fact]
-        public void Test_Done()
+        public void Test_DescriptionGetSet()
         {
+            // Arrange
+            string description;
+            Todo t = new Todo(101, "Testa Todo-klassen");
+
+            // Act
+            t.Description = "Testa Todo-klassen genast!";
+            description = t.Description;
+
+            // Assert
+            Assert.Equal("Testa Todo-klassen genast!", description);
+        }
+
+        [Fact]
+        public void Test_DoneGetSet()
+        {
+            // Arrange
+            bool done;
             Todo t = new Todo(101, "Testa denna klassen");
 
-            Assert.False(t.Done);
-
+            // Act
             t.Done = true;
+            done = t.Done;
 
-            Assert.True(t.Done);
+            // Assert
+            Assert.True(done);
         }
 
         [Fact]
-        public void Test_Assign()
+        public void Test_AssigneeSetGet()
         {
+            // Arrange
             Todo t = new Todo(101, "Testa denna klassen");
+            Person person1 = new Person(101, "Kalle", "Karlsson"), person2;
+            
+            // Act
+            t.Assignee = person1;
+            person2 = t.Assignee;
 
-            t.Assignee = new Person(101, "Kalle", "Karlsson"); 
-
-            Assert.Equal("Karlsson", t.Assignee.LastName);
+            // Assert
+            Assert.True(person1.Equals(person2));
         }
     }
 }
