@@ -37,15 +37,19 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_Size()
         {
             // Arrange
+            int size;
+
             TodoItems.Clear();
 
-            // Act
             TodoItems.Add("Skotta snö");
             TodoItems.Add("Klipp gräset");
             TodoItems.Add("Gräv en brunn");
 
+            // Act
+            size = TodoItems.Size();
+
             // Assert
-            Assert.Equal(3, TodoItems.Size());
+            Assert.Equal(3, size);
         }
         [Fact]
 
@@ -65,7 +69,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
             todo1 = TodoItems.FindById(todoId1);
             todo2 = TodoItems.FindById(todoId2);
             todo3 = TodoItems.FindById(todoId3);
-            todo4 = TodoItems.FindById(999);
+            todo4 = TodoItems.FindById(0);
 
             // Assert
             Assert.Equal(todoId1, todo1.Todoid);

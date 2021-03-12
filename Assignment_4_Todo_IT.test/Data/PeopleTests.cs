@@ -39,15 +39,19 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_Size()
         {
             // Arrange
+            int size;
+
             People.Clear();
         
-            // Act
             People.Add("Kalle", "Karlsson");
             People.Add("Kent", "Larsson");
             People.Add("Ebbe", "Karlsson");
 
+            // Act
+            size = People.Size();
+
             // Assert
-            Assert.Equal(3, People.Size());
+            Assert.Equal(3, size);
         }
 
         [Fact]
@@ -68,7 +72,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
             person1 = People.FindById(person1Id);
             person2 = People.FindById(person2Id);
             person3 = People.FindById(person3Id);
-            person4 = People.FindById(999);
+            person4 = People.FindById(0);
 
             // Assert
             Assert.Equal(person1Id, person1.PersonId);
