@@ -13,6 +13,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         {
             // Arrange
             Todo todo1, todo2, todo3;
+            Todo[] allTodos;
 
             TodoItems.Clear();
             TodoSequencer.Reset();
@@ -23,12 +24,14 @@ namespace Assignment_4_Todo_IT.Tests.Data
             todo3 = TodoItems.Add("Gräv en brunn");
 
             // Assert
-            Assert.Equal(1, todo1.Todoid);
+            allTodos = TodoItems.FindAll();
+            Assert.Equal(3, allTodos.Length);
             Assert.Equal("Skotta snö", todo1.Description);
-            Assert.Equal(2, todo2.Todoid);
             Assert.Equal("Klipp gräset", todo2.Description);
-            Assert.Equal(3, todo3.Todoid);
             Assert.Equal("Gräv en brunn", todo3.Description);
+            Assert.Contains(todo1, allTodos);
+            Assert.Contains(todo2, allTodos);
+            Assert.Contains(todo3, allTodos);
         }
 
         [Fact]

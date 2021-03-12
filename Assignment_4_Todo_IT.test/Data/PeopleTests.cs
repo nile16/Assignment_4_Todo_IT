@@ -12,6 +12,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         {
             // Arrange
             Person person1, person2, person3;
+            Person[] allPersons;
 
             People.Clear();
             PersonSequencer.Reset();
@@ -22,19 +23,17 @@ namespace Assignment_4_Todo_IT.Tests.Data
             person3 = People.Add("Ebbe", "Karlsson");
 
             // Assert
+            allPersons = People.FindAll();
             Assert.Equal(3, People.Size());
-
-            Assert.Equal(1, person1.PersonId);
             Assert.Equal("Kalle", person1.FirstName);
             Assert.Equal("Karlsson", person1.LastName);
-
-            Assert.Equal(2, person2.PersonId);
             Assert.Equal("Kent", person2.FirstName);
             Assert.Equal("Larsson", person2.LastName);
-
-            Assert.Equal(3, person3.PersonId);
             Assert.Equal("Ebbe", person3.FirstName);
             Assert.Equal("Karlsson", person3.LastName);
+            Assert.Contains(person1, allPersons);
+            Assert.Contains(person2, allPersons);
+            Assert.Contains(person3, allPersons);
         }
         [Fact]
 
