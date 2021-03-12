@@ -16,7 +16,6 @@ namespace Assignment_4_Todo_IT.Tests.Data
             Todo[] allTodos;
 
             TodoItems.Clear();
-            TodoSequencer.Reset();
 
             // Act
             todo1 = TodoItems.Add("Skotta snö");

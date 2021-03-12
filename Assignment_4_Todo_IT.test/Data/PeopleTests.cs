@@ -15,7 +15,6 @@ namespace Assignment_4_Todo_IT.Tests.Data
             Person[] allPersons;
 
             People.Clear();
-            PersonSequencer.Reset();
 
             // Act
             person1 = People.Add("Kalle", "Karlsson");
