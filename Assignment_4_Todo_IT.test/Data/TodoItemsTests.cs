@@ -120,24 +120,27 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindByDoneStatus()
         {
             // Arrange
-            Todo[] notDoneTodos;
+            Todo todo1, todo2, todo3;
+            Todo[] doneTodos, notDoneTodos;
 
             TodoItems.Clear();
-            TodoSequencer.Reset();
 
-            TodoItems.Add("Skotta snö");
-            TodoItems.Add("Klipp gräset").Done = true;
-            TodoItems.Add("Gräv en brunn");
+            todo1 = TodoItems.Add("Skotta snö");
+            todo2 = TodoItems.Add("Klipp gräset");
+            todo3 = TodoItems.Add("Gräv en brunn");
+
+            todo1.Done = false;
+            todo2.Done = true;
+            todo3.Done = false;
 
             // Act
+            doneTodos = TodoItems.FindByDoneStatus(true);
             notDoneTodos = TodoItems.FindByDoneStatus(false);
 
             // Assert
-            Assert.Equal(2, notDoneTodos.Length);
-            Assert.False(notDoneTodos[0].Done);
-            Assert.Equal("Skotta snö", notDoneTodos[0].Description);
-            Assert.False(notDoneTodos[1].Done);
-            Assert.Equal("Gräv en brunn", notDoneTodos[1].Description);
+            Assert.Contains(todo1, notDoneTodos);
+            Assert.Contains(todo2, doneTodos);
+            Assert.Contains(todo3, notDoneTodos);
         }
 
         [Fact]
