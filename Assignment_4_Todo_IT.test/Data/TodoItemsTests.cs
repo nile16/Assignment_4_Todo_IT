@@ -50,7 +50,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindById()
         {
             // Arrange
-            Todo todo1, todo2, todo3;
+            Todo todo1, todo2, todo3, todo4;
 
             TodoItems.Clear();
             TodoSequencer.Reset();
@@ -63,11 +63,13 @@ namespace Assignment_4_Todo_IT.Tests.Data
             todo1 = TodoItems.FindById(1);
             todo2 = TodoItems.FindById(2);
             todo3 = TodoItems.FindById(3);
+            todo4 = TodoItems.FindById(999);
 
             // Assert
             Assert.Equal(1, todo1.Todoid);
             Assert.Equal(2, todo2.Todoid);
             Assert.Equal(3, todo3.Todoid);
+            Assert.Null(todo4);
         }
 
         [Fact]
@@ -142,7 +144,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindByAssignee_PersonId()
         {
             // Arrange
-            Todo[] todoWithAssigneeId2;
+            Todo[] todoWithAssigneeId2, todoWithAssigneeId3;
             Person person1 = new Person(1, "Kalle", "Karlsson");
             Person person2 = new Person(2, "Kent", "Larsson");
 
@@ -155,20 +157,23 @@ namespace Assignment_4_Todo_IT.Tests.Data
 
             // Act
             todoWithAssigneeId2 = TodoItems.FindByAssignee(2);
+            todoWithAssigneeId3 = TodoItems.FindByAssignee(999);
 
             // Assert
             Assert.Equal(2, todoWithAssigneeId2.Length);
             Assert.Equal("Skotta snö", todoWithAssigneeId2[0].Description);
             Assert.Equal("Gräv en brunn", todoWithAssigneeId2[1].Description);
-       }
+            Assert.Empty(todoWithAssigneeId3);
+        }
 
         [Fact]
         public void Test_FindByAssignee_Assignee()
         {
             // Arrange
-            Todo[] todosWithAssigneePerson2;
+            Todo[] todosWithAssigneePerson2, todosWithAssigneePerson3;
             Person person1 = new Person(1, "Kalle", "Karlsson");
             Person person2 = new Person(2, "Kent", "Larsson");
+            Person person3 = new Person(3, "Ebbe", "Karlsson");
 
             TodoItems.Clear();
             TodoSequencer.Reset();
@@ -179,11 +184,13 @@ namespace Assignment_4_Todo_IT.Tests.Data
 
             // Act
             todosWithAssigneePerson2 = TodoItems.FindByAssignee(person2);
+            todosWithAssigneePerson3 = TodoItems.FindByAssignee(person3);
 
             // Assert
             Assert.Equal(2, todosWithAssigneePerson2.Length);
             Assert.Equal("Skotta snö", todosWithAssigneePerson2[0].Description);
             Assert.Equal("Gräv en brunn", todosWithAssigneePerson2[1].Description);
+            Assert.Empty(todosWithAssigneePerson3);
         }
 
         [Fact]

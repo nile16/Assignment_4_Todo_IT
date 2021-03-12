@@ -57,7 +57,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindById()
         {
             // Arrange
-            Person person1, person2, person3;
+            Person person1, person2, person3, person4;
          
             People.Clear();
             PersonSequencer.Reset();
@@ -70,11 +70,13 @@ namespace Assignment_4_Todo_IT.Tests.Data
             person1 = People.FindById(1);
             person2 = People.FindById(2);
             person3 = People.FindById(3);
+            person4 = People.FindById(999);
 
             // Assert
             Assert.Equal(1, person1.PersonId);
             Assert.Equal(2, person2.PersonId);
             Assert.Equal(3, person3.PersonId);
+            Assert.Null(person4);
         }
 
         [Fact]
