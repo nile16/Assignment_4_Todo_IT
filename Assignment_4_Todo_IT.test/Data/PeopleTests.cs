@@ -56,24 +56,24 @@ namespace Assignment_4_Todo_IT.Tests.Data
         {
             // Arrange
             Person person1, person2, person3, person4;
+            int person1Id, person2Id, person3Id;
          
             People.Clear();
-            PersonSequencer.Reset();
             
-            People.Add("Kalle", "Karlsson");
-            People.Add("Kent", "Larsson");
-            People.Add("Ebbe", "Karlsson");
+            person1Id = People.Add("Kalle", "Karlsson").PersonId;
+            person2Id = People.Add("Kent", "Larsson").PersonId;
+            person3Id = People.Add("Ebbe", "Karlsson").PersonId;
 
             // Act
-            person1 = People.FindById(1);
-            person2 = People.FindById(2);
-            person3 = People.FindById(3);
+            person1 = People.FindById(person1Id);
+            person2 = People.FindById(person2Id);
+            person3 = People.FindById(person3Id);
             person4 = People.FindById(999);
 
             // Assert
-            Assert.Equal(1, person1.PersonId);
-            Assert.Equal(2, person2.PersonId);
-            Assert.Equal(3, person3.PersonId);
+            Assert.Equal(person1Id, person1.PersonId);
+            Assert.Equal(person2Id, person2.PersonId);
+            Assert.Equal(person3Id, person3.PersonId);
             Assert.Null(person4);
         }
 
