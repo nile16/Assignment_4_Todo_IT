@@ -226,7 +226,6 @@ namespace Assignment_4_Todo_IT.Tests.Data
             Todo[] allTodoItems;
 
             TodoItems.Clear();
-            TodoSequencer.Reset();
 
             todo1 = TodoItems.Add("Skotta snö");
             todo2 = TodoItems.Add("Klipp gräset");

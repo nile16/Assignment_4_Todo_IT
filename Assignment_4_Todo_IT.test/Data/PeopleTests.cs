@@ -131,7 +131,6 @@ namespace Assignment_4_Todo_IT.Tests.Data
             Person[] everybody;
 
             People.Clear();
-            PersonSequencer.Reset();
 
             person1 = People.Add("Kalle", "Karlsson");
             person2 = People.Add("Kent", "Larsson");
