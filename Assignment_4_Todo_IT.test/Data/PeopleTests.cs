@@ -81,32 +81,23 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindAll()
         {
             // Arrange
+            Person person1, person2, person3;
             Person[] everybody;
             
             People.Clear();
-            PersonSequencer.Reset();
             
-            People.Add("Kalle", "Karlsson");
-            People.Add("Kent", "Larsson");
-            People.Add("Ebbe", "Karlsson");
+            person1 = People.Add("Kalle", "Karlsson");
+            person2 = People.Add("Kent", "Larsson");
+            person3 = People.Add("Ebbe", "Karlsson");
 
             // Act
             everybody = People.FindAll();
 
             // Assert
             Assert.Equal(3, everybody.Length);
-
-            Assert.Equal(1, everybody[0].PersonId);
-            Assert.Equal("Kalle", everybody[0].FirstName);
-            Assert.Equal("Karlsson", everybody[0].LastName);
-
-            Assert.Equal(2, everybody[1].PersonId);
-            Assert.Equal("Kent", everybody[1].FirstName);
-            Assert.Equal("Larsson", everybody[1].LastName);
-
-            Assert.Equal(3, everybody[2].PersonId);
-            Assert.Equal("Ebbe", everybody[2].FirstName);
-            Assert.Equal("Karlsson", everybody[2].LastName);
+            Assert.Contains(person1, everybody);
+            Assert.Contains(person2, everybody);
+            Assert.Contains(person3, everybody);
         }
 
         [Fact]

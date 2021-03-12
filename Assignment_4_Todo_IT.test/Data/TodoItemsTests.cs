@@ -78,29 +78,23 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindAll()
         {
             // Arrange
+            Todo todo1, todo2, todo3, todo4;
             Todo[] allTodoItems;
 
             TodoItems.Clear();
-            TodoSequencer.Reset();
 
-            TodoItems.Add("Skotta snö");
-            TodoItems.Add("Klipp gräset");
-            TodoItems.Add("Gräv en brunn");
+            todo1 = TodoItems.Add("Skotta snö");
+            todo2 = TodoItems.Add("Klipp gräset");
+            todo3 = TodoItems.Add("Gräv en brunn");
 
             // Act
             allTodoItems = TodoItems.FindAll();
 
             // Assert
             Assert.Equal(3, allTodoItems.Length);
-
-            Assert.Equal("Skotta snö", allTodoItems[0].Description);
-            Assert.Equal(1, allTodoItems[0].Todoid);
-
-            Assert.Equal("Klipp gräset", allTodoItems[1].Description);
-            Assert.Equal(2, allTodoItems[1].Todoid);
-
-            Assert.Equal("Gräv en brunn", allTodoItems[2].Description);
-            Assert.Equal(3, allTodoItems[2].Todoid);
+            Assert.Contains(todo1, allTodoItems);
+            Assert.Contains(todo2, allTodoItems);
+            Assert.Contains(todo3, allTodoItems);
         }
 
         [Fact]
