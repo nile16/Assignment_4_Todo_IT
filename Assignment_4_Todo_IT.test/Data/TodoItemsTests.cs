@@ -222,23 +222,25 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_Remove()
         {
             // Arrange
+            Todo todo1, todo2, todo3;
             Todo[] allTodoItems;
 
             TodoItems.Clear();
             TodoSequencer.Reset();
 
-            TodoItems.Add("Skotta snö");
-            TodoItems.Add("Klipp gräset");
-            TodoItems.Add("Gräv en brunn");
+            todo1 = TodoItems.Add("Skotta snö");
+            todo2 = TodoItems.Add("Klipp gräset");
+            todo3 = TodoItems.Add("Gräv en brunn");
 
             // Act
-            TodoItems.Remove(2);
+            TodoItems.Remove(todo2.Todoid);
 
             // Assert
             allTodoItems = TodoItems.FindAll();
             Assert.Equal(2, allTodoItems.Length);
-            Assert.Equal("Skotta snö", allTodoItems[0].Description);
-            Assert.Equal("Gräv en brunn", allTodoItems[1].Description);
+            Assert.Contains(todo1, allTodoItems);
+            Assert.DoesNotContain(todo2, allTodoItems);
+            Assert.Contains(todo3, allTodoItems);
         }
     }
 }
