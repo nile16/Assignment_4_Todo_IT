@@ -147,7 +147,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindByAssignee_PersonId()
         {
             // Arrange
-            Todo todo1, todo2, todo3, todo4;
+            Todo todo1, todo2, todo3;
             Todo[] todosAssignedToPerson1, todosAssignedToUnusedPersonId;
             Person person1 = new Person(1, "Kalle", "Karlsson");
             Person person2 = new Person(2, "Kent", "Larsson");
@@ -178,7 +178,7 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindByAssignee_Assignee()
         {
             // Arrange
-            Todo todo1, todo2, todo3, todo4;
+            Todo todo1, todo2, todo3;
             Todo[] todosWithAssigneePerson1, todosWithAssigneePerson3;
             Person person1 = new Person(1, "Kalle", "Karlsson");
             Person person2 = new Person(2, "Kent", "Larsson");
@@ -210,23 +210,27 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindUnassignedTodoItems()
         {
             // Arrange
+            Todo todo1, todo2, todo3, todo4;
             Todo[] unassignedDotos;
-            Person person = new Person(1, "Kalle", "Karlsson");
+            Person person1 = new Person(1, "Kalle", "Karlsson");
             
             TodoItems.Clear();
-            TodoSequencer.Reset();
 
-            TodoItems.Add("Skotta snö");
-            TodoItems.Add("Klipp gräset").Assignee = person;
-            TodoItems.Add("Gräv en brunn");
+            todo1 = TodoItems.Add("Skotta snö");
+            todo2 = TodoItems.Add("Klipp gräset");
+            todo3 = TodoItems.Add("Gräv en brunn");
+            todo4 = TodoItems.Add("Handla mat");
+
+            todo1.Assignee = person1;
+            todo3.Assignee = person1;
 
             // Act
             unassignedDotos = TodoItems.FindUnassignedTodoItems();
 
             // Assert
             Assert.Equal(2, unassignedDotos.Length);
-            Assert.Equal("Skotta snö", unassignedDotos[0].Description);
-            Assert.Equal("Gräv en brunn", unassignedDotos[1].Description);
+            Assert.Contains(todo2, unassignedDotos);
+            Assert.Contains(todo4, unassignedDotos);
         }
 
         [Fact]
