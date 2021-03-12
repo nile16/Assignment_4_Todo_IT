@@ -53,24 +53,24 @@ namespace Assignment_4_Todo_IT.Tests.Data
         {
             // Arrange
             Todo todo1, todo2, todo3, todo4;
+            int todoId1, todoId2, todoId3;
 
             TodoItems.Clear();
-            TodoSequencer.Reset();
 
-            TodoItems.Add("Skotta snö");
-            TodoItems.Add("Klipp gräset");
-            TodoItems.Add("Gräv en brunn");
+            todoId1 = TodoItems.Add("Skotta snö").Todoid;
+            todoId2 = TodoItems.Add("Klipp gräset").Todoid;
+            todoId3 = TodoItems.Add("Gräv en brunn").Todoid;
 
             // Act
-            todo1 = TodoItems.FindById(1);
-            todo2 = TodoItems.FindById(2);
-            todo3 = TodoItems.FindById(3);
+            todo1 = TodoItems.FindById(todoId1);
+            todo2 = TodoItems.FindById(todoId2);
+            todo3 = TodoItems.FindById(todoId3);
             todo4 = TodoItems.FindById(999);
 
             // Assert
-            Assert.Equal(1, todo1.Todoid);
-            Assert.Equal(2, todo2.Todoid);
-            Assert.Equal(3, todo3.Todoid);
+            Assert.Equal(todoId1, todo1.Todoid);
+            Assert.Equal(todoId2, todo2.Todoid);
+            Assert.Equal(todoId3, todo3.Todoid);
             Assert.Null(todo4);
         }
 
