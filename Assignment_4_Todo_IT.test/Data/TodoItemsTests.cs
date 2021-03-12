@@ -147,26 +147,31 @@ namespace Assignment_4_Todo_IT.Tests.Data
         public void Test_FindByAssignee_PersonId()
         {
             // Arrange
-            Todo[] todoWithAssigneeId2, todoWithAssigneeId3;
+            Todo todo1, todo2, todo3, todo4;
+            Todo[] todosAssignedToPerson1, todosAssignedToUnusedPersonId;
             Person person1 = new Person(1, "Kalle", "Karlsson");
             Person person2 = new Person(2, "Kent", "Larsson");
 
             TodoItems.Clear();
-            TodoSequencer.Reset();
 
-            TodoItems.Add("Skotta snö").Assignee = person2;
-            TodoItems.Add("Klipp gräset").Assignee = person1;
-            TodoItems.Add("Gräv en brunn").Assignee = person2;
+            todo1 = TodoItems.Add("Skotta snö");
+            todo2 = TodoItems.Add("Klipp gräset");
+            todo3 = TodoItems.Add("Gräv en brunn");
+            TodoItems.Add("Handla mat");
+
+            todo1.Assignee = person1;
+            todo2.Assignee = person2;
+            todo3.Assignee = person1;
 
             // Act
-            todoWithAssigneeId2 = TodoItems.FindByAssignee(2);
-            todoWithAssigneeId3 = TodoItems.FindByAssignee(999);
+            todosAssignedToPerson1 = TodoItems.FindByAssignee(person1.PersonId);
+            todosAssignedToUnusedPersonId = TodoItems.FindByAssignee(0);
 
             // Assert
-            Assert.Equal(2, todoWithAssigneeId2.Length);
-            Assert.Equal("Skotta snö", todoWithAssigneeId2[0].Description);
-            Assert.Equal("Gräv en brunn", todoWithAssigneeId2[1].Description);
-            Assert.Empty(todoWithAssigneeId3);
+            Assert.Equal(2, todosAssignedToPerson1.Length);
+            Assert.Contains(todo1, todosAssignedToPerson1);
+            Assert.Contains(todo3, todosAssignedToPerson1);
+            Assert.Empty(todosAssignedToUnusedPersonId);
         }
 
         [Fact]
